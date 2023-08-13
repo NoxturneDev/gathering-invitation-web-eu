@@ -39,5 +39,4 @@ onMounted(() => {
 
 <template>
   <h1 ref="loaderTitle">Mahasiswa Universitas Esa Unggul</h1>
-  <h3>{{ store.isLoaderFinish }}</h3>
 </template>

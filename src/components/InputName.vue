@@ -27,6 +27,7 @@ async function setName(newName) {
 function animationSequence({ delay }) {
   const timeline = gsap.timeline({ delay })
 
+  timeline.to(input.value, { opacity: 1 })
   timeline.to(greetingTextOne.value, { opacity: 1 }, 'greetingOne')
   timeline.to(greetingTextTwo.value, { opacity: 1 }, 'greetingOne+=1')
   timeline.to(btnNext.value, { opacity: 1 }, 'greetingOne+=3')
@@ -41,6 +42,7 @@ onMounted(() => {
   gsap.set(greetingNameRef.value, { opacity: 0 })
   gsap.set(greetingTextOne.value, { opacity: 0 })
   gsap.set(greetingTextTwo.value, { opacity: 0 })
+  gsap.fromTo(input.value, { opacity: 0 }, { opacity: 1 })
 })
 </script>
 
