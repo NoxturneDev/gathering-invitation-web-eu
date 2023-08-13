@@ -27,8 +27,10 @@ function animationSequence({ delay }) {
   const timeline = gsap.timeline({ delay })
 
   timeline.to(greetingNameRef.value, { opacity: 0 })
-  timeline.to(greetingTextOne.value, { opacity: 1 })
-  timeline.to(greetingTextTwo.value, { opacity: 1 })
+  timeline.to(greetingTextOne.value, { opacity: 1 }, 'greetingOne')
+  timeline.to(greetingTextOne.value, { opacity: 0 }, 'greetingOne+=1')
+  timeline.to(greetingTextTwo.value, { opacity: 1 }, 'greetingOne+=2')
+  timeline.to(greetingTextTwo.value, { opacity: 0 }, 'greetingOne+=3')
 }
 
 onMounted(() => {
