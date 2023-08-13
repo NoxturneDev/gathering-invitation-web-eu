@@ -1,6 +1,7 @@
 <script setup>
 import gsap from 'gsap'
 import { onMounted, ref } from 'vue'
+import { store } from '../store'
 
 const input = ref(null)
 const name = ref('')
@@ -9,6 +10,7 @@ const name = ref('')
 const greetingNameRef = ref(null)
 const greetingTextOne = ref(null)
 const greetingTextTwo = ref(null)
+const btnNext = ref(null)
 
 function onBtnClick() {
   const { value } = input
@@ -19,21 +21,23 @@ async function setName(newName) {
   name.value = newName
   gsap.to(greetingNameRef.value, { opacity: 1, duration: 1 })
 
-  console.log('test')
   animationSequence({ delay: 1 })
 }
 
 function animationSequence({ delay }) {
   const timeline = gsap.timeline({ delay })
 
-  timeline.to(greetingNameRef.value, { opacity: 0 })
   timeline.to(greetingTextOne.value, { opacity: 1 }, 'greetingOne')
-  timeline.to(greetingTextOne.value, { opacity: 0 }, 'greetingOne+=1')
-  timeline.to(greetingTextTwo.value, { opacity: 1 }, 'greetingOne+=2')
-  timeline.to(greetingTextTwo.value, { opacity: 0 }, 'greetingOne+=3')
+  timeline.to(greetingTextTwo.value, { opacity: 1 }, 'greetingOne+=1')
+  timeline.to(btnNext.value, { opacity: 1 }, 'greetingOne+=3')
+}
+
+function proceedNext() {
+  store.nextAnimationStep()
 }
 
 onMounted(() => {
+  gsap.set(btnNext.value, { opacity: 0 })
   gsap.set(greetingNameRef.value, { opacity: 0 })
   gsap.set(greetingTextOne.value, { opacity: 0 })
   gsap.set(greetingTextTwo.value, { opacity: 0 })
@@ -46,4 +50,5 @@ onMounted(() => {
   <h1 v-motion="'greetingName'" ref="greetingNameRef">Hi {{ name }}</h1>
   <h1 ref="greetingTextOne">You're invited to</h1>
   <h1 ref="greetingTextTwo">The gathering of Universitas Esa Unggul</h1>
+  <button @click="proceedNext" ref="btnNext">Next</button>
 </template>
