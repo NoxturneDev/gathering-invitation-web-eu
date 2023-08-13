@@ -1,17 +1,14 @@
 <script setup>
-import { useMotions, useMotion } from '@vueuse/motion'
-import { ref } from 'vue'
+import gsap from 'gsap'
+import { onMounted, ref } from 'vue'
 
 const input = ref(null)
-const greetingNameRef = ref(null)
 const name = ref('')
 
-const { title } = useMotions()
-const { apply } = useMotion(greetingNameRef, {
-  initial: {
-    opacity: 0,
-  }
-})
+// animation  ref
+const greetingNameRef = ref(null)
+const greetingTextOne = ref(null)
+const greetingTextTwo = ref(null)
 
 function onBtnClick() {
   const { value } = input
@@ -20,31 +17,31 @@ function onBtnClick() {
 
 async function setName(newName) {
   name.value = newName
+  gsap.to(greetingNameRef.value, { opacity: 1, duration: 1 })
 
-  await apply({
-    opacity: 1
-  })
+  console.log('test')
+  animationSequence({ delay: 1 })
 }
 
-function animationSequence(){
-  
+function animationSequence({ delay }) {
+  const timeline = gsap.timeline({ delay })
+
+  timeline.to(greetingNameRef.value, { opacity: 0 })
+  timeline.to(greetingTextOne.value, { opacity: 1 })
+  timeline.to(greetingTextTwo.value, { opacity: 1 })
 }
+
+onMounted(() => {
+  gsap.set(greetingNameRef.value, { opacity: 0 })
+  gsap.set(greetingTextOne.value, { opacity: 0 })
+  gsap.set(greetingTextTwo.value, { opacity: 0 })
+})
 </script>
 
 <template>
-  <input
-    ref="input"
-    v-motion="'title'"
-    :initial="{
-      opacity: 0,
-      y: -100,
-      x: 0
-    }"
-    :enter="{
-      opacity: 1,
-      y: 0
-    }"
-  />
+  <input ref="input" />
   <button @click="onBtnClick" v-motion="'submitBtn'">Click me</button>
   <h1 v-motion="'greetingName'" ref="greetingNameRef">Hi {{ name }}</h1>
+  <h1 ref="greetingTextOne">You're invited to</h1>
+  <h1 ref="greetingTextTwo">The gathering of Universitas Esa Unggul</h1>
 </template>
