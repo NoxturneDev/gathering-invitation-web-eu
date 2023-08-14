@@ -27,5 +27,6 @@ onMounted(() => {
 
 <template>
   <h3 ref="formContainer">Forms confirmation</h3>
+  <a href="https://forms.gle/4p1LWRm2bY9w8bxn8">Isi Link form kehadiran disini</a>
   <button ref="btnNext" @click="gotoForms">Confirm</button>
 </template>

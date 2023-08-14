@@ -47,10 +47,28 @@ onMounted(() => {
 </script>
 
 <template>
-  <input ref="input" />
+  <input ref="input" id="input" />
   <button @click="onBtnClick" v-motion="'submitBtn'">Click me</button>
   <h1 v-motion="'greetingName'" ref="greetingNameRef">Hi {{ name }}</h1>
   <h1 ref="greetingTextOne">You're invited to</h1>
   <h1 ref="greetingTextTwo">The gathering of Universitas Esa Unggul</h1>
   <button @click="proceedNext" ref="btnNext">Next</button>
 </template>
+
+<style>
+ /* reset id */
+ #input {
+  border: none;
+  outline: none;
+  transition: all ease-in-out 500ms;
+  background-color: var(--main-bg-dark)
+ }
+
+ #input:focus {
+  border: 1px solid #010101;
+ }
+
+ #input:hover {
+  border: 1px solid #f1f1f1;
+ }
+</style>
