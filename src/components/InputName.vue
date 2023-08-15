@@ -47,28 +47,40 @@ onMounted(() => {
 </script>
 
 <template>
-  <input ref="input" id="input" />
-  <button @click="onBtnClick" v-motion="'submitBtn'">Click me</button>
-  <h1 v-motion="'greetingName'" ref="greetingNameRef">Hi {{ name }}</h1>
-  <h1 ref="greetingTextOne">You're invited to</h1>
-  <h1 ref="greetingTextTwo">The gathering of Universitas Esa Unggul</h1>
+  <div class="flex flex-col justify-center items-center h-[90vh] gap-5">
+    <h1 class="text-white font-bold text-5xl">Who's your name?</h1>
+    <!-- <div
+      class="backdrop-blur-md border-[1.4px] bg-white bg-opacity-10 border-opacity-40 border-white px-4 py-2 flex flex-col justify-center items-center"
+    > -->
+    <input ref="input" class="input" />
+    <!-- </div> -->
+    <button @click="onBtnClick" v-motion="'submitBtn'" class="btn">Proceed</button>
+  </div>
+  <h1 v-motion="'greetingName'" ref="greetingNameRef" class="text-white font-bold text-5xl">Hi {{ name }}</h1>
+  <h1 ref="greetingTextOne" class="text-white font-bold text-5xl">You're invited to</h1>
+  <h1 ref="greetingTextTwo" class="text-white font-bold text-5xl">The gathering of Universitas Esa Unggul</h1>
   <button @click="proceedNext" ref="btnNext">Next</button>
 </template>
 
 <style>
- /* reset id */
- #input {
-  border: none;
+.input {
+  background-color: transparent;
+  border-bottom: 1px;
+  border-image: linear-gradient(to right, #0077ff, #00aaff) 1;
+  border-style: solid;
   outline: none;
-  transition: all ease-in-out 500ms;
-  background-color: var(--main-bg-dark)
- }
+  color: white;
+  padding: 0.8em 0.5em;
+  font-weight: bold;
+}
 
- #input:focus {
-  border: 1px solid #010101;
- }
-
- #input:hover {
-  border: 1px solid #f1f1f1;
- }
+.btn {
+  border: 1px solid;
+  border-image: linear-gradient(to right, #0077ff, #00aaff) 1;
+  padding: 0.5em 1em;
+  background: linear-gradient(to right, #0077ff, #00aaff);
+  background-clip: text;
+  -webkit-background-clip: text; /* For compatibility with some browsers */
+  color: transparent; /* Hide the original text color */
+}
 </style>
