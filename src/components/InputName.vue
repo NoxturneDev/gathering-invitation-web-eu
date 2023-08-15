@@ -22,6 +22,13 @@ function onBtnClick() {
   hideInput()
 }
 
+function enterInput(e) {
+  const { value } = input
+  setName(value.value)
+
+  hideInput()
+}
+
 function hideInput() {
   const tl = gsap.timeline({ onComplete: () => (showInputName.value = false) })
 
@@ -52,7 +59,7 @@ onMounted(() => {
   gsap.set(greetingNameRef.value, { opacity: 0 })
   gsap.set(greetingTextOne.value, { opacity: 0 })
   gsap.set(greetingTextTwo.value, { opacity: 0 })
-  gsap.fromTo(inputWrapper.value, { opacity: 0 }, { opacity: 1, duratio: 1.5 })
+  gsap.fromTo(inputWrapper.value, { opacity: 0 }, { opacity: 1, duration: 1.5, delay: 0.5 })
 })
 </script>
 
@@ -62,13 +69,14 @@ onMounted(() => {
     ref="inputWrapper"
     v-if="showInputName"
   >
-    <h1 class="text-white font-bold text-5xl">Who's your name?</h1>
+    <h1 class="text-white font-bold text-5xl">What's your name?</h1>
     <!-- <div
       class="backdrop-blur-md border-[1.4px] bg-white bg-opacity-10 border-opacity-40 border-white px-4 py-2 flex flex-col justify-center items-center"
     > -->
-    <input ref="input" class="input" />
+    <input ref="input" class="input" type="text" @change="enterInput"/>
+    <span class="font-bold text-white" @click="onBtnClick">Enter ↵</span>
     <!-- </div> -->
-    <Button @click="onBtnClick" :text="'Confirm'" />
+    <!-- <Button @click="onBtnClick" :text="'Confirm'" /> -->
   </div>
   <div class="w-full h-full flex flex-col justify-start items-start gap-5 py-20">
     <div class="mb-40">
@@ -79,15 +87,38 @@ onMounted(() => {
       "Gathering of Universitas Esa Unggul"
     </h1>
     <!-- <button @click="proceedNext" ref="btnNext">Next</button> -->
-    <Button :text="'Daftar'" @click="proceedNext" />
+    <Button @click="proceedNext" ref="btnNext">Lihat detail</Button>
   </div>
 </template>
 
 <style>
+.input::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    linear-gradient(90deg, #fff 1px, transparent 0) 0 0,
+    linear-gradient(180deg, #fff 1px, transparent 0) 0 0,
+    linear-gradient(270deg, #fff 1px, transparent 0) 100% 0,
+    linear-gradient(180deg, #fff 1px, transparent 0) 100% 0,
+    linear-gradient(270deg, #fff 1px, transparent 0) 100% 100%,
+    linear-gradient(0deg, #fff 1px, transparent 0) 100% 100%,
+    linear-gradient(90deg, #fff 1px, transparent 0) 0 100%,
+    linear-gradient(0deg, #fff 1px, transparent 0) 0 100%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  margin: -1px;
+  /* z-index: 1; */
+}
+
 .input {
+  position: relative;
+  /* border: 0.5px solid white; */
   background-color: transparent;
-  border-bottom: 1px solid;
-  border-image: linear-gradient(to right, #0077ff, #00aaff) 1;
+  /* border-image: linear-gradient(to right, #0077ff, #00aaff) 1; */
   outline: none;
   color: white;
   padding: 0.8em 0.5em;

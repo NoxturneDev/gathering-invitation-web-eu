@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { gsap } from 'gsap'
+import Button from './Button.vue'
 
 const thankYouTextRef = ref(null)
 const form = ref(null)
@@ -13,9 +14,12 @@ onMounted(() => {
 <template>
   <div class="flex flex-col justify-center items-start gap-10">
     <h1 ref="thankYouTextRef" class="text-white font-bold text-5xl">Kami tunggu kehadiranya!</h1>
-    <h3 class="font-light text-white text-2xl" ref="form">
-      <a href="https://forms.gle/4p1LWRm2bY9w8bxn8" class="italic" target="_blank">Link Form Partisipasi >></a>
-    </h3>
+    <Button ref="form">
+      <a href="https://forms.gle/4p1LWRm2bY9w8bxn8" target="_blank">
+        Link Form Partisipasi
+      </a>
+    </Button>
+    <!-- <h3 class="font-light text-white text-2xl" ref="form"></h3> -->
   </div>
 </template>
 

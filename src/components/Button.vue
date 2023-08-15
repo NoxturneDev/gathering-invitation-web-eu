@@ -7,7 +7,9 @@ defineEmits(['click'])
 </script>
 
 <template>
-  <button class="btn" @click="$emit('click')">{{ text }}</button>
+  <button class="btn" @click="$emit('click')">
+    <slot />
+  </button>
 </template>
 
 <style>

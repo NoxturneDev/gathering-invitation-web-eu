@@ -19,6 +19,7 @@ function loaderAnimation() {
 
     timeline.set(el, { opacity: 0 }) // Start with opacity 0 for all elements
     timeline.to(el, { opacity: 1, delay: Math.random() * 1 }) // Apply a random delay between 0 and 0.5 seconds
+    timeline.to(el, { opacity: 0, delay: Math.random() * 1 }, ">+2") // Apply a random delay between 0 and 0.5 seconds
 
     totalDuration = timeline.duration()
   })
@@ -28,7 +29,7 @@ function loaderAnimation() {
       store.finishLoader()
       store.nextAnimationStep()
     },
-    totalDuration * 1000 + 500
+    totalDuration * 1000 + 1000
   )
 }
 

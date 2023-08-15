@@ -27,8 +27,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex flex-col justify-center items-center gap-5">
-    <h3 ref="formContainer" class="font-bold text-white text-5xl">Forms confirmation</h3>
-    <Button :text="'Proceed'" :color="'white'" @click="gotoForms" />
+  <div class="flex flex-col justify-center items-center gap-5 px-4 py-9 backdrop-blur-sm bg-blue-700 bg-opacity-20 border-[0.8px] border-white border-opacity-25 text-white">
+    <!-- Location -->
+    <h3 class="font-bold">LOKASI</h3>
+    <p>Jl Alamat Kampung Bandang, Jakarta Barat, Indonesia 16360</p>
+    <h3 class="font-bold">TANGGAL</h3>
+    <p>20 Agustus 2020</p>
   </div>
+  <Button :text="'Daftar'" @click="gotoForms" />
 </template>

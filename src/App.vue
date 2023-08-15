@@ -4,7 +4,7 @@ import InputName from './components/InputName.vue'
 import Loader from './components/Loader.vue'
 import ThankYou from './components/ThankYou.vue'
 // import ImageGalleryVue from './components/ImageGallery.vue'
-// import FormConfirmationVue from './components/FormConfirmation.vue'
+import EventDetails from './components/EventDetails.vue'
 
 import { store } from './store.js'
 </script>
@@ -14,7 +14,7 @@ import { store } from './store.js'
     <BackgroundAnimationVue />
     <Loader v-if="store.currentAnimationIndex === 0" />
     <InputName v-if="store.currentAnimationIndex === 1" />
-    <!-- <FormConfirmationVue v-if="store.currentAnimationIndex === 2" /> -->
-    <ThankYou v-if="store.currentAnimationIndex === 2" />
+    <EventDetails v-if="store.currentAnimationIndex === 2" />
+    <ThankYou v-if="store.currentAnimationIndex === 3" />
   </main>
 </template>

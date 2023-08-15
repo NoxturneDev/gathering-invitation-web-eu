@@ -3,12 +3,14 @@ import gsap from 'gsap'
 import { onMounted, ref } from 'vue'
 
 const wrapper = ref(null)
+const imageWrapper = ref(null)
 const circleOne = ref(null)
 const circleTwo = ref(null)
 const circleThree = ref(null)
 
 function runAnimation() {
   animateBgColor()
+  animateImage()
 }
 
 function animateBgColor() {
@@ -18,6 +20,12 @@ function animateBgColor() {
   tl.to(circleOne.value, { rotate: 360, duration: 35, ease: 'linear' }, 0)
   tl.to(circleTwo.value, { rotate: 360, duration: 35, ease: 'linear' }, 0)
   tl.to(circleThree.value, { rotate: 360, duration: 35, ease: 'linear' }, 0)
+}
+
+function animateImage() {
+  const tl = gsap.timeline({ repeat: -1 })
+
+  // tl.fromTo(imageWrapper.value, { opacity: 0,y: -100 }, { opacity: 1, y: 100, duration: 10 })
 }
 
 onMounted(() => {
@@ -32,6 +40,9 @@ onMounted(() => {
       <div class="circle" ref="circleTwo"></div>
       <div class="circle" ref="circleThree"></div>
     </div>
+    <!-- <div class="w-40 h-auto" ref="imageWrapper">
+      <img src="bg-1.jpg" alt="" />
+    </div> -->
   </div>
 </template>
 
@@ -67,15 +78,6 @@ onMounted(() => {
   width: 700px;
   height: 700px;
 }
-
-/* .circle:nth-child(2) {
-  background: linear-gradient(to bottom, #0077ff, #0055ff);
-  filter: blur(20px);
-  right: 10px;
-  bottom: 40%;
-  width: 600px;
-  height: 600px;
-} */
 
 .circle:nth-child(3) {
   background: linear-gradient(to bottom, #0055ff, #0033ff);
