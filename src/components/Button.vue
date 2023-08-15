@@ -11,20 +11,44 @@ defineEmits(['click'])
 </template>
 
 <style>
-.btn {
-  border: 1px solid;
-  font-weight: 700;
-  padding: 0.5em 1em;
-  transition: all ease-in-out 500ms;
-  border-image: linear-gradient(to right, #0077ff, #00aaff) 1;
-  background: linear-gradient(to right, #0077ff, #00aaff);
-  background-clip: text;
-  -webkit-background-clip: text; /* For compatibility with some browsers */
-  color: transparent; /* Hide the original text color */
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    linear-gradient(90deg, #fff 1px, transparent 0) 0 0,
+    linear-gradient(180deg, #fff 1px, transparent 0) 0 0,
+    linear-gradient(270deg, #fff 1px, transparent 0) 100% 0,
+    linear-gradient(180deg, #fff 1px, transparent 0) 100% 0,
+    linear-gradient(270deg, #fff 1px, transparent 0) 100% 100%,
+    linear-gradient(0deg, #fff 1px, transparent 0) 100% 100%,
+    linear-gradient(90deg, #fff 1px, transparent 0) 0 100%,
+    linear-gradient(0deg, #fff 1px, transparent 0) 0 100%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  margin: -1px;
+  /* z-index: 1; */
 }
 
-.btn:hover{
-  color:white;
-  border: 1px solid;
+.btn {
+  border: 0.5px solid rgba(255, 255, 255, 0.267);
+  position: relative;
+  font-weight: 500;
+  padding: 0.8em 1.5em;
+  transition: all ease-in-out 500ms;
+  background: linear-gradient(to right, #1d20f0f5, #4319ff94);
+  backdrop-filter: blur(10px);
+  color: white;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  color: white;
+  border: 0.6px solid rgba(255, 255, 255, 0.671);
 }
 </style>
