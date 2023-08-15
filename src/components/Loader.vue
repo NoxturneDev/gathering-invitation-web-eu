@@ -26,6 +26,7 @@ function loaderAnimation() {
   setTimeout(
     () => {
       store.finishLoader()
+      store.nextAnimationStep()
     },
     totalDuration * 1000 + 500
   )
@@ -37,8 +38,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-4 justify-center items-center">
-    <h1 ref="loaderTitle" class="font-bold text-7xl">Mahasiswa Universitas Esa Unggul</h1>
-    <button class="rounded-full h-10 w-10 bg-blue-500" @click="store.nextAnimationStep()"></button>
+  <div class="flex flex-col md:gap-4 justify-center items-center">
+    <h1 ref="loaderTitle" class="font-bold text-6xl text-white text-center">
+      Welcome..
+    </h1>
+    <!-- <button class="rounded-full h-10 w-10 bg-blue-500" @click="store.nextAnimationStep()"></button> -->
   </div>
 </template>

@@ -2,6 +2,7 @@
 import { onMounted, ref } from 'vue'
 import { store } from '../store'
 import { gsap } from 'gsap'
+import Button from './Button.vue'
 
 const formContainer = ref(null)
 const btnNext = ref(null)
@@ -26,7 +27,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <h3 ref="formContainer">Forms confirmation</h3>
-  <a href="https://forms.gle/4p1LWRm2bY9w8bxn8">Isi Link form kehadiran disini</a>
-  <button ref="btnNext" @click="gotoForms">Confirm</button>
+  <div class="flex flex-col justify-center items-center gap-5">
+    <h3 ref="formContainer" class="font-bold text-white text-5xl">Forms confirmation</h3>
+    <Button :text="'Proceed'" :color="'white'" @click="gotoForms" />
+  </div>
 </template>
