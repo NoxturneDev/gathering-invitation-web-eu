@@ -23,11 +23,14 @@ onMounted(() => {
     class="flex flex-col justify-center items-center gap-5 px-4 py-9 backdrop-blur-sm bg-blue-800 bg-opacity-30 border-[0.8px] border-white border-opacity-25 text-white"
   >
     <!-- Location -->
+    <h3 class="text-2xl font-bold text-center">
+      Silaturahmi Mahasiswa Baru Esa Unggul angkatan 2023
+    </h3>
     <div class="mb-5 w-[200px] h-auto">
       <img src="/logo.jpeg" alt="" />
     </div>
     <div class="mb-3 w-full text-center">
-      <h3 class="font-bold text-1xl">LOKASI</h3>
+      <h3 class="font-bold text-1xl">LOKASI (Menyesuaikan)</h3>
       <p>Jl Alamat Kampung Bandang, Jakarta Barat, Indonesia 16360</p>
     </div>
     <div class="mb-3 w-full text-center">
