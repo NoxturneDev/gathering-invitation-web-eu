@@ -31,11 +31,13 @@ onMounted(() => {
 
 <template>
   <div class="flex flex-col justify-center items-center gap-10">
-    <h1 ref="thankYouTextRef" class="text-white font-bold text-4xl md:text-5xl">Kami tunggu kehadiranya!</h1>
+    <h1 ref="thankYouTextRef" class="text-white font-bold text-4xl md:text-5xl">
+      Kami tunggu kehadiranya!
+    </h1>
     <div ref="form">
-      <Button>
-        <a href="https://forms.gle/4p1LWRm2bY9w8bxn8" target="_blank"> Link Form Partisipasi </a>
-      </Button>
+      <a href="https://forms.gle/4p1LWRm2bY9w8bxn8">
+        <Button> Link form Partisipasi </Button>
+      </a>
     </div>
     <!-- <h3 class="font-light text-white text-2xl" ref="form"></h3> -->
   </div>
