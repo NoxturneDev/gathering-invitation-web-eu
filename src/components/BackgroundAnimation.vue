@@ -56,6 +56,7 @@ onMounted(() => {
   display: grid;
   place-items: center;
 }
+
 .wrapper {
   position: absolute;
   width: 250%;
@@ -70,8 +71,9 @@ onMounted(() => {
   animation: moveCircles 10s infinite linear;
 }
 
+/* Circle 1 Styles */
 .circle:nth-child(1) {
-  background: linear-gradient(to bottom, #00aaff, #0077ff);
+  background: linear-gradient(to bottom, #1915fa, #0077ff);
   filter: blur(20px);
   bottom: 20%;
   right: 20%;
@@ -79,6 +81,17 @@ onMounted(() => {
   height: 700px;
 }
 
+/* Circle 2 Styles */
+.circle:nth-child(2) {
+  background: linear-gradient(to bottom, #3700ff, #0033ff);
+  filter: blur(20px);
+  right: 5%;
+  top: 10%;
+  width: 800px;
+  height: 800px;
+}
+
+/* Circle 2 Styles */
 .circle:nth-child(3) {
   background: linear-gradient(to bottom, #0055ff, #0033ff);
   filter: blur(20px);
@@ -87,4 +100,39 @@ onMounted(() => {
   width: 800px;
   height: 800px;
 }
+
+/* Responsive Styles */
+.circle:nth-child(1) {
+  width: 90vmin; /* Responsive sizing based on viewport width */
+  height: 90vmin; /* Responsive sizing based on viewport height */
+}
+
+.circle:nth-child(2) {
+  width: 95vmin; /* Responsive sizing based on viewport width */
+  height: 95vmin; /* Responsive sizing based on viewport height */
+}
+
+.circle:nth-child(3) {
+  width: 100vmin; /* Responsive sizing based on viewport width */
+  height: 100vmin; /* Responsive sizing based on viewport height */
+}
+
+/* Media Queries for Desktop and Smaller Screens */
+@media screen and (min-width: 768px) {
+  .circle:nth-child(1) {
+    width: 950px; /* 1.5 times the size for desktop */
+    height: 950px; /* 1.5 times the size for desktop */
+  }
+
+  .circle:nth-child(1) {
+    width: 1050px; /* 1.5 times the size for desktop */
+    height: 1050px; /* 1.5 times the size for desktop */
+  }
+
+  .circle:nth-child(3) {
+    width: 1100px; /* 1.5 times the size for desktop */
+    height: 1100px; /* 1.5 times the size for desktop */
+  }
+}
+
 </style>

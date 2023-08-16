@@ -8,7 +8,7 @@ defineEmits(['click'])
 
 <template>
   <button class="btn" @click="$emit('click')">
-    <slot />
+  <slot />
   </button>
 </template>
 
@@ -41,7 +41,7 @@ defineEmits(['click'])
   font-weight: 500;
   padding: 0.8em 1.5em;
   transition: all ease-in-out 500ms;
-  background: linear-gradient(to right, #1d20f0f5, #4319ff94);
+  background: rgba(2, 44, 121, 0.67);
   backdrop-filter: blur(10px);
   color: white;
   font-size: 14px;
@@ -51,6 +51,7 @@ defineEmits(['click'])
 
 .btn:hover {
   color: white;
+  background: #1915fa;
   border: 0.6px solid rgba(255, 255, 255, 0.671);
 }
-</style>
+</style>94
