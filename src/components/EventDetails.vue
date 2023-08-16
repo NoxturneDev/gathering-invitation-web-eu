@@ -24,7 +24,7 @@ onMounted(() => {
   >
     <!-- Location -->
     <div class="mb-5 w-[200px] h-auto">
-      <img src="logo.jpeg" alt="" />
+      <img src="/logo.jpeg" alt="" />
     </div>
     <div class="mb-3 w-full text-center">
       <h3 class="font-bold text-1xl">LOKASI</h3>
