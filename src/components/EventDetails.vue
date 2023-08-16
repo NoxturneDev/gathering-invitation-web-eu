@@ -31,14 +31,17 @@ onMounted(() => {
     </div>
     <div class="mb-3 w-full text-center">
       <h3 class="font-bold text-1xl">LOKASI (Menyesuaikan)</h3>
-      <p>Jl Alamat Kampung Bandang, Jakarta Barat, Indonesia 16360</p>
+      <p>Titik kumpul Kampus Esa Unggul Jakarta (Setelah Zuhur)</p>
     </div>
     <div class="mb-3 w-full text-center">
       <h3 class="font-bold text-1xl">TANGGAL</h3>
-      <p>20 Agustus 2020</p>
+      <p>20 Agustus 2023</p>
       <div class="mt-5" ref="btnNext">
         <Button @click="gotoForms">Daftar</Button>
       </div>
+    </div>
+    <div class="mt-10 text-center w-4/5">
+      <p class="text-italic">Notes: Yang tidak ada kendaraan, bisa kumpul di kampus. InsyaAllah nanti ada boncengan</p>
     </div>
   </div>
 </template>
